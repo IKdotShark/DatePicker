@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Comfortaa", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[data-theme="romantic"] body {
+  background: linear-gradient(135deg, #fff1f5 0%, #ffe0ea 50%, #ffd0dd 100%);
+  color: #5b1431;
+}
+html[data-theme="romantic"] .card {
+  background-color: #ffffffd9;
+  border: 1px solid #ffd0dd;
+  box-shadow: 0 6px 18px rgba(255, 89, 134, 0.15);
+}
+html[data-theme="romantic"] .btn-primary {
+  background: linear-gradient(135deg, #ff5d92, #ff2e76);
+  color: white;
+  box-shadow: 0 6px 20px rgba(255, 46, 118, 0.35);
+}
+html[data-theme="romantic"] .btn-secondary {
+  background: white;
+  color: #b30f4b;
+  border: 1px solid #ffc1d5;
+}
+
+html[data-theme="minimal"] body {
+  background: #fafafa;
+  color: #111827;
+}
+html[data-theme="minimal-dark"] body {
+  background: #0b0b0c;
+  color: #f3f4f6;
+}
+html[data-theme="minimal"] .card,
+html[data-theme="minimal-dark"] .card {
+  background-color: var(--card-bg, #fff);
+  border: 1px solid var(--card-border, #e5e7eb);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+html[data-theme="minimal-dark"] .card {
+  --card-bg: #161618;
+  --card-border: #27272a;
+}
+html[data-theme="minimal"] .btn-primary,
+html[data-theme="minimal-dark"] .btn-primary {
+  background: #111827;
+  color: white;
+}
+html[data-theme="minimal-dark"] .btn-primary {
+  background: #f3f4f6;
+  color: #0b0b0c;
+}
+html[data-theme="minimal"] .btn-secondary,
+html[data-theme="minimal-dark"] .btn-secondary {
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+
+.card {
+  @apply rounded-2xl p-5;
+}
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition-transform select-none;
+  touch-action: manipulation;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  @apply btn;
+}
+.btn-secondary {
+  @apply btn;
+}
+.input,
+.textarea,
+.select {
+  @apply w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-200;
+}
+html[data-theme="minimal-dark"] .input,
+html[data-theme="minimal-dark"] .textarea,
+html[data-theme="minimal-dark"] .select {
+  @apply border-zinc-700 bg-zinc-900 text-zinc-100;
+}
+
+html[data-theme="romantic"] .hearts-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(255, 89, 134, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 46, 118, 0.18), transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
