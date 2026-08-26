@@ -22,6 +22,10 @@ dist/
 .env.local
 .env.*.local
 
+# Local compose overrides (per-host tweaks)
+docker-compose.override.yml
+docker-compose.override.yaml
+
 # Editor / OS
 .idea/
 .vscode/
