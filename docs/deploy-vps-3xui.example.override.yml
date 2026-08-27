@@ -1,0 +1,14 @@
+# Example docker-compose.override.yml for a VPS that already runs
+# 3x-ui / xray on port 443. Copy this to `docker-compose.override.yml`
+# next to docker-compose.yml on the server; Docker Compose will merge it
+# automatically. This file is git-ignored.
+#
+# Effect: Caddy publishes on host port 8443 (public HTTPS) and 80
+# (needed by Let's Encrypt HTTP-01 challenge only). Port 443 stays
+# free for the VPN.
+
+services:
+  caddy:
+    ports:
+      - "80:80"
+      - "8443:443"
